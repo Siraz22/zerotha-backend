@@ -1,0 +1,1 @@
+- Why do we use insertable = false, updatable = false when creating a discriminator Column
