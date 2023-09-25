@@ -12,7 +12,8 @@ import java.util.Optional;
 @Service
 public class BankServiceImpl implements BankService {
 
-    private final BankDAO bankDAO;
+    @Autowired
+    private BankDAO bankDAO;
 
     @Autowired
     public BankServiceImpl(BankDAO bankDAO) {
