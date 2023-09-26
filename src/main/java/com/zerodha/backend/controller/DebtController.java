@@ -19,14 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 import jakarta.persistence.criteria.CriteriaBuilder.In;
 
 @RestController
-@RequestMapping(GlobalConstants.API_VERSION)
+@RequestMapping(GlobalConstants.API_VERSION+"/debt")
 public class DebtController
 {
     @Autowired
     private DebtService debtService;
 
     @PostMapping
-    public DebtEntity create(DebtEntity debtEntity){
+    public DebtEntity create(@RequestBody DebtEntity debtEntity){
         return debtService.create(debtEntity);
     }
 

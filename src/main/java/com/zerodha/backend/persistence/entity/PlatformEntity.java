@@ -22,8 +22,8 @@ public class PlatformEntity {
     @Column(name = "name")
     String name;
 
-    @OneToOne(mappedBy = "platform", cascade = CascadeType.ALL)
-    InvestmentEntity investment;
+    @OneToMany(mappedBy = "platform", cascade = CascadeType.ALL)
+    List<InvestmentEntity> investmentEntities;
 
     @OneToMany(mappedBy = "platform", cascade = CascadeType.ALL)
     List<PlatformHasTransactionsEntity> platformHasTransactionsEntities;

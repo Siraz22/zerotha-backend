@@ -1,6 +1,7 @@
 package com.zerodha.backend.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.zerodha.backend.dao.CountryDAO;
 import com.zerodha.backend.persistence.entity.CountryEntity;
@@ -18,30 +19,37 @@ public class CountryServiceImpl implements CountryService
     @Override
     public CountryEntity create(CountryEntity countryEntity)
     {
-        return null;
+        return countryDAO.save(countryEntity);
     }
 
     @Override
     public CountryEntity findOne(Integer countryId)
     {
-        return null;
+        Optional<CountryEntity> optionalCountryEntity = countryDAO.findById(countryId);
+        return optionalCountryEntity.orElse(null);
     }
 
     @Override
-    public CountryEntity update(Integer countryId, CountryEntity countryEntity)
+    public CountryEntity update(Integer countryId, CountryEntity updatedCountryEntity)
     {
+        Optional<CountryEntity> optionalCountryEntity = countryDAO.findById(countryId);
+        if(optionalCountryEntity.isPresent()){
+            CountryEntity countryEntity = optionalCountryEntity.get();
+            countryEntity.setName(updatedCountryEntity.getName());
+            countryEntity.setCurrency(updatedCountryEntity.getCurrency());
+        }
         return null;
     }
 
     @Override
     public void delete(Integer countryId)
     {
-
+        countryDAO.deleteById(countryId);
     }
 
     @Override
     public List<CountryEntity> findAll()
     {
-        return null;
+        return countryDAO.findAll();
     }
 }

@@ -32,11 +32,11 @@ public abstract class InvestmentEntity {
     @JoinColumn(name = "ref_user")
     UserEntity investmentHolder;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ref_platform")
     PlatformEntity platform;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ref_country")
     CountryEntity associatedCountry;
 
