@@ -1,5 +1,7 @@
 package com.zerodha.backend.persistence.entity;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +25,12 @@ public class CountryEntity {
     @Column(name = "currency")
     String currency;
 
-    @OneToOne(mappedBy = "associatedCountry", cascade = CascadeType.ALL, orphanRemoval = false)
-    InvestmentEntity investment;
+    /**
+     * Don't remove the investments if country is removed,
+     * instead keep the investments, so user can update a country for them.
+     * For time being, we keep the country to null, and set it to Unknown in frontend
+     */
+
+    @OneToMany(mappedBy = "associatedCountry", cascade = CascadeType.ALL, orphanRemoval = false)
+    List<InvestmentEntity> investmentEntities;
 }
