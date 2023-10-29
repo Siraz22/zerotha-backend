@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://rain.db.elephantsql.com/xpyntjcq
+    username: xpyntjcq
+    password: nm-NTx7ilDuqSeXaeSOJxjQx09d8LK5A
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+  jackson:
+    serialization:
+      indent_output: true
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active: development
+
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
+      hibernate: INFO
