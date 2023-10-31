@@ -1,27 +1,41 @@
+# Common
 spring:
-  datasource:
-    url: jdbc:postgresql://rain.db.elephantsql.com/xpyntjcq
-    username: xpyntjcq
-    password: nm-NTx7ilDuqSeXaeSOJxjQx09d8LK5A
-  jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    database: POSTGRESQL
-    hibernate:
-      ddl-auto: update
-  h2:
-    console:
-      enabled: true
-  jackson:
-    serialization:
-      indent_output: true
+  profiles:
+    active: dev
   main:
     allow-bean-definition-overriding: true
-  profiles:
-    active: development
-
+  jpa:
+    hibernate:
+      ddl-auto: update
 logging:
   level:
     org:
       springframework:
         web: INFO
       hibernate: INFO
+
+# Development
+---
+spring:
+  config:
+    activate:
+      on-profile: "dev"
+  datasource:
+    url: jdbc:postgresql://localhost:5431/zerotha
+    username: postgres
+    password: root1234
+    driver-class-name: org.postgresql.Driver
+
+# Production
+---
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+  datasource:
+    url: jdbc:postgresql://db.hzndyjtfxvikkjvuxbcp.supabase.co:5432/postgres
+    username: postgres
+    password: GenkinLabs@5324
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: POSTGRESQL
