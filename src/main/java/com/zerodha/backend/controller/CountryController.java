@@ -2,6 +2,7 @@ package com.zerodha.backend.controller;
 
 import java.util.List;
 
+import com.zerodha.backend.dto.CountryDTO;
 import com.zerodha.backend.persistence.constants.GlobalConstants;
 import com.zerodha.backend.persistence.entity.CountryEntity;
 import com.zerodha.backend.service.CountryService;
@@ -24,18 +25,18 @@ public class CountryController
     private CountryService countryService;
 
     @PostMapping
-    public CountryEntity create(@RequestBody CountryEntity countryEntity){
-        return countryService.create(countryEntity);
+    public CountryDTO create(@RequestBody CountryDTO countryDTO){
+        return countryService.create(countryDTO);
     }
 
     @GetMapping("/{id}")
-    public CountryEntity findOne(@PathVariable Integer id){
+    public CountryDTO findOne(@PathVariable Integer id){
         return countryService.findOne(id);
     }
 
     @PatchMapping("/{id}")
-    public CountryEntity update(@PathVariable Integer id, @RequestBody CountryEntity countryEntity){
-        return countryService.update(id, countryEntity);
+    public CountryDTO update(@PathVariable Integer id, @RequestBody CountryDTO countryDTO){
+        return countryService.update(id, countryDTO);
     }
 
     @DeleteMapping("/{id}")
@@ -44,7 +45,7 @@ public class CountryController
     }
 
     @GetMapping
-    public List<CountryEntity> findAll(){
+    public List<CountryDTO> findAll(){
         return countryService.findAll();
     }
 }

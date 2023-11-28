@@ -25,12 +25,17 @@ public class CountryEntity {
     @Column(name = "currency")
     String currency;
 
+    @Column(name = "currency_name")
+    String currencyName;
+
+    @Column(name = "currency_symbol")
+    String currencySymbol;
+
     /**
      * Don't remove the investments if country is removed,
      * instead keep the investments, so user can update a country for them.
      * For time being, we keep the country to null, and set it to Unknown in frontend
      */
-
     @OneToMany(mappedBy = "associatedCountry", cascade = CascadeType.ALL, orphanRemoval = false)
     List<InvestmentEntity> investmentEntities;
 }
