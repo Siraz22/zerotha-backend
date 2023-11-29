@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import com.zerodha.backend.dao.CountryDAO;
+import com.zerodha.backend.dto.CountryDTO;
+import com.zerodha.backend.mapper.CountryMapper;
 import com.zerodha.backend.persistence.entity.CountryEntity;
 import com.zerodha.backend.service.CountryService;
 
@@ -16,27 +18,31 @@ public class CountryServiceImpl implements CountryService
     @Autowired
     private CountryDAO countryDAO;
 
+    @Autowired
+    private CountryMapper countryMapper;
+
     @Override
-    public CountryEntity create(CountryEntity countryEntity)
+    public CountryDTO create(CountryDTO countryDTO)
     {
-        return countryDAO.save(countryEntity);
+        CountryEntity countryEntity = countryMapper.toEntity(countryDTO);
+        return countryMapper.toDTO(countryDAO.save(countryEntity));
     }
 
     @Override
-    public CountryEntity findOne(Integer countryId)
+    public CountryDTO findOne(Integer countryId)
     {
         Optional<CountryEntity> optionalCountryEntity = countryDAO.findById(countryId);
-        return optionalCountryEntity.orElse(null);
+        return optionalCountryEntity.map(countryEntity -> countryMapper.toDTO(countryEntity)).orElse(null);
     }
 
     @Override
-    public CountryEntity update(Integer countryId, CountryEntity updatedCountryEntity)
+    public CountryDTO update(Integer countryId, CountryDTO updatedCountryDTO)
     {
         Optional<CountryEntity> optionalCountryEntity = countryDAO.findById(countryId);
         if(optionalCountryEntity.isPresent()){
             CountryEntity countryEntity = optionalCountryEntity.get();
-            countryEntity.setName(updatedCountryEntity.getName());
-            countryEntity.setCurrency(updatedCountryEntity.getCurrency());
+            countryEntity.setName(updatedCountryDTO.getName());
+            countryEntity.setCurrency(updatedCountryDTO.getCurrency());
         }
         return null;
     }
@@ -48,8 +54,9 @@ public class CountryServiceImpl implements CountryService
     }
 
     @Override
-    public List<CountryEntity> findAll()
+    public List<CountryDTO> findAll()
     {
-        return countryDAO.findAll();
+        List<CountryEntity> countryEntities = countryDAO.findAll();
+        return countryMapper.toDTOs(countryEntities);
     }
 }

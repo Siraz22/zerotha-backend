@@ -2,18 +2,19 @@ package com.zerodha.backend.service;
 
 import java.util.List;
 
+import com.zerodha.backend.dto.CountryDTO;
 import com.zerodha.backend.persistence.entity.CountryEntity;
 
 public interface CountryService {
     //CRUD operations
-    CountryEntity create(CountryEntity countryEntity);
+    CountryDTO create(CountryDTO countryDTO);
 
-    CountryEntity findOne(Integer countryId);
+    CountryDTO findOne(Integer countryId);
 
-    CountryEntity update(Integer countryId, CountryEntity countryEntity);
+    CountryDTO update(Integer countryId, CountryDTO countryDTO);
 
     void delete(Integer countryId);
 
     //Other operations
-    List<CountryEntity> findAll();
+    List<CountryDTO> findAll();
 }
