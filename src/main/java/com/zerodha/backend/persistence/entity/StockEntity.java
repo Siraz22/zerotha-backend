@@ -23,4 +23,7 @@ public class StockEntity extends InvestmentEntity {
 
     @Enumerated(value = EnumType.STRING)
     Sector sector;
+
+    @Column(name="name")
+    String name;
 }
