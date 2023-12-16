@@ -13,5 +13,5 @@ public enum Sector {
     COMMUNICATION,
     REAL_ESTATE,
     ETF,
-    INDEX_FUNDS
+    INDEX_FUNDS,
 }

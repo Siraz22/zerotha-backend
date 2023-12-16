@@ -1,5 +1,6 @@
 package com.zerodha.backend.persistence.entity;
 
+import com.zerodha.backend.enums.InvestmentType;
 import com.zerodha.backend.enums.MarketCap;
 import com.zerodha.backend.enums.Sector;
 import jakarta.persistence.*;
@@ -14,6 +15,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@DiscriminatorValue("STOCK")
 public class StockEntity extends InvestmentEntity {
     @Column(name = "symbol")
     String symbol;
@@ -23,4 +25,7 @@ public class StockEntity extends InvestmentEntity {
 
     @Enumerated(value = EnumType.STRING)
     Sector sector;
+
+    @Column(name = "name")
+    String name;
 }

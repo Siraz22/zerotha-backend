@@ -1,5 +1,6 @@
 package com.zerodha.backend.persistence.entity;
 
+import com.zerodha.backend.converter.InvestmentTypeConverter;
 import com.zerodha.backend.enums.InvestmentType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,7 +11,7 @@ import lombok.Setter;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "investment_entity")
+@Table(name = "investment")
 @Inheritance(strategy = InheritanceType.JOINED)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -40,7 +41,9 @@ public abstract class InvestmentEntity {
     @JoinColumn(name = "ref_country")
     CountryEntity associatedCountry;
 
-    @Enumerated(value = EnumType.STRING)
+    //TODO - Read more about converters and discriminators!
+    @Convert(converter = InvestmentTypeConverter.class)
+    @Enumerated(EnumType.STRING)
     @Column(name = "investment_type", insertable = false, updatable = false)
     InvestmentType investmentType;
 }

@@ -11,6 +11,8 @@ public interface CountryService {
 
     CountryDTO findOne(Integer countryId);
 
+    CountryEntity findOneEntity(Integer countryId);
+
     CountryDTO update(Integer countryId, CountryDTO countryDTO);
 
     void delete(Integer countryId);
