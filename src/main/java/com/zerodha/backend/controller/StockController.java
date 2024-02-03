@@ -1,6 +1,7 @@
 package com.zerodha.backend.controller;
 
 import com.zerodha.backend.dto.StockDTO;
+import com.zerodha.backend.dto.StockUpdateDTO;
 import com.zerodha.backend.persistence.constants.GlobalConstants;
 import com.zerodha.backend.service.StockService;
 
@@ -26,9 +27,9 @@ public class StockController {
         return stockService.findOne(id);
     }
 
-    @PatchMapping("/{id}")
-    public StockDTO update(@PathVariable Integer id, @RequestBody StockDTO stockDTO) {
-        return stockService.update(id, stockDTO);
+    @PatchMapping()
+    public StockDTO update(@RequestBody StockUpdateDTO stockUpdateDTO) {
+        return stockService.update(stockUpdateDTO);
     }
 
     @DeleteMapping("/{id}")

@@ -21,9 +21,9 @@ spring:
     activate:
       on-profile: "dev"
   datasource:
-    url: jdbc:postgresql://localhost:5432/zerotha
+    url: jdbc:postgresql://localhost:5431/zerotha
     username: postgres
-    password: GenkinLabs
+    password: root1234
     driver-class-name: org.postgresql.Driver
 
 # Production

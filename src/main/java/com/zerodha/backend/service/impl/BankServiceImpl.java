@@ -15,11 +15,6 @@ public class BankServiceImpl implements BankService {
     @Autowired
     private BankDAO bankDAO;
 
-    @Autowired
-    public BankServiceImpl(BankDAO bankDAO) {
-        this.bankDAO = bankDAO;
-    }
-
     @Override
     public BankEntity create(BankEntity bankEntity) {
         return bankDAO.save(bankEntity);

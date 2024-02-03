@@ -24,7 +24,7 @@ public abstract class InvestmentEntity {
     Integer id;
 
     @Column(name = "quantity")
-    Integer quantity;
+    BigDecimal quantity;
 
     @Column(name = "average_price")
     BigDecimal averagePrice;

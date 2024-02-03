@@ -16,7 +16,7 @@ import lombok.Setter;
 public class InvestmentDTO
 {
     private Integer id;
-    private Integer quantity;
+    private BigDecimal quantity;
     private BigDecimal averagePrice;
     InvestmentType investmentType;
     private Integer associatedCountryId;

@@ -2,11 +2,14 @@ package com.zerodha.backend.service.impl;
 
 import com.zerodha.backend.dao.StockDAO;
 import com.zerodha.backend.dto.StockDTO;
+import com.zerodha.backend.dto.StockUpdateDTO;
 import com.zerodha.backend.enums.InvestmentType;
 import com.zerodha.backend.mapper.CountryMapper;
 import com.zerodha.backend.mapper.StockMapper;
+import com.zerodha.backend.persistence.entity.BankEntity;
 import com.zerodha.backend.persistence.entity.CountryEntity;
 import com.zerodha.backend.persistence.entity.StockEntity;
+import com.zerodha.backend.service.BankService;
 import com.zerodha.backend.service.CountryService;
 import com.zerodha.backend.service.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +30,14 @@ public class StockServiceImpl implements StockService {
     @Autowired
     private CountryService countryService;
 
+    @Autowired
+    private BankService bankService;
+
     @Override
     public StockDTO create(StockDTO stockDTO) {
+
+        BankEntity addedBank = bankService.create(new BankEntity());
+
         StockEntity stockEntity = stockMapper.toEntity(stockDTO);
         CountryEntity countryEntity = countryService.findOneEntity(stockDTO.getAssociatedCountryId());
         stockEntity.setAssociatedCountry(countryEntity);
@@ -42,14 +51,11 @@ public class StockServiceImpl implements StockService {
     }
 
     @Override
-    public StockDTO update(Integer stockId, StockDTO updatedStockDTO) {
-        Optional<StockEntity> optionalStockEntity = stockDAO.findById(stockId);
+    public StockDTO update(StockUpdateDTO updatedStockDTO) {
+        Optional<StockEntity> optionalStockEntity = stockDAO.findById(updatedStockDTO.getId());
         if (optionalStockEntity.isPresent()) {
             StockEntity stockEntity = optionalStockEntity.get();
-            // Update fields as needed
-            stockEntity.setName(updatedStockDTO.getName());
-            // Update other fields...
-
+            stockMapper.updateEntity(updatedStockDTO, stockEntity);
             return stockMapper.toDTO(stockDAO.save(stockEntity));
         }
         return null;
