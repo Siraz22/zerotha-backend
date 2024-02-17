@@ -33,7 +33,7 @@ spring:
     activate:
       on-profile: "prod"
   datasource:
-    url: jdbc:postgresql://aws-0-ap-south-1.pooler.supabase.com:5432/postgres?user=postgres.hzndyjtfxvikkjvuxbcp
+    url: jdbc:postgresql://aws-0-ap-south-1.pooler.supabase.com:5432/postgres
     username: postgres
     password: GenkinLabs@5324
   jpa:
