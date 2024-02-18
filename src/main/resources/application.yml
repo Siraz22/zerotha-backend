@@ -47,3 +47,15 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     database: POSTGRESQL
+
+# Production Supa
+---
+spring:
+  config:
+    activate:
+      on-profile: "prod_supa"
+  datasource:
+    url: jdbc:postgresql://aws-0-ap-south-1.pooler.supabase.com:5432/postgres?user=postgres.ngglxzbzmnvkqsaggtua&password=GenkinLabs@5324
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: POSTGRESQL
