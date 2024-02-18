@@ -1,12 +1,15 @@
-# fly.toml app configuration file generated for zerotha-backend on 2024-02-18T11:46:55+05:30
+# fly.toml app configuration file generated for zerotha-backend-old-shape-9245 on 2024-02-18T17:33:15+05:30
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'zerotha-backend'
+app = 'zerotha-backend-old-shape-9245'
 primary_region = 'hkg'
 
 [build]
+
+[env]
+  HOSTNAME = '0.0.0.0'
 
 [http_service]
   internal_port = 8080
@@ -17,6 +20,4 @@ primary_region = 'hkg'
   processes = ['app']
 
 [[vm]]
-  memory = '1gb'
-  cpu_kind = 'shared'
-  cpus = 1
+  size = 'shared-cpu-1x'

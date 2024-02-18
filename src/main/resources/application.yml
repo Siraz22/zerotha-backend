@@ -31,12 +31,11 @@ spring:
     activate:
       on-profile: "dev"
   datasource:
-    url: jdbc:postgresql://db.ngglxzbzmnvkqsaggtua.supabase.co:5432/postgres
-    username: postgres
-    password: GenkinLabs@5324
+    url: jdbc:postgresql://dpg-cn8vcb2cn0vc738pg17g-a.oregon-postgres.render.com:5432/sample_245a?user=sample_245a_user&password=y8sn2wehTZ0tCLjMmdmzkwTxmbDAHIp8
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     database: POSTGRESQL
+
 # Production
 ---
 spring:
@@ -44,9 +43,7 @@ spring:
     activate:
       on-profile: "prod"
   datasource:
-    url: jdbc:postgresql://db.ngglxzbzmnvkqsaggtua.supabase.co:5432/postgres
-    username: postgres
-    password: GenkinLabs@5324
+    url: jdbc:postgresql://dpg-cn8vcb2cn0vc738pg17g-a.oregon-postgres.render.com:5432/sample_245a?user=sample_245a_user&password=y8sn2wehTZ0tCLjMmdmzkwTxmbDAHIp8
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     database: POSTGRESQL
