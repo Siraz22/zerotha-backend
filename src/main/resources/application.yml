@@ -34,10 +34,6 @@ spring:
     url: jdbc:postgresql://db.ngglxzbzmnvkqsaggtua.supabase.co:5432/postgres
     username: postgres
     password: GenkinLabs@5324
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
 
 # Production
 ---
@@ -49,7 +45,3 @@ spring:
     url: jdbc:postgresql://db.ngglxzbzmnvkqsaggtua.supabase.co:5432/postgres
     username: postgres
     password: GenkinLabs@5324
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
