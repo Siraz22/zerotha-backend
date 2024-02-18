@@ -31,7 +31,7 @@ spring:
     activate:
       on-profile: "dev"
   datasource:
-    url: jdbc:postgresql://db.ngglxzbzmnvkqsaggtua.supabase.co:5432/postgres?user=postgres&password=GenkinLabs@5324
+    url: jdbc:postgresql://db.ngglxzbzmnvkqsaggtua.supabase.co:5432/postgres?user=postgres&password=${DB_PASSWORD}
 
 # Production
 ---
@@ -40,6 +40,4 @@ spring:
     activate:
       on-profile: "prod"
   datasource:
-    url: jdbc:postgresql://db.ngglxzbzmnvkqsaggtua.supabase.co:5432/postgres
-    username: postgres
-    password: GenkinLabs@5324
+    url: jdbc:postgresql://db.ngglxzbzmnvkqsaggtua.supabase.co:5432/postgres?user=postgres&password=GenkinLabs@5324
