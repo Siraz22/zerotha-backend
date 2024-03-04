@@ -10,7 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry corsRegistry) {
         corsRegistry.addMapping("/**")
-                .allowedOrigins("http://localhost:4200","https://zerotha-legacy.vercel.app","http://localhost:53741")
+                .allowedOrigins("http://localhost:4200","https://zerotha-legacy.vercel.app","https://zerotha.vercel.app")
                 .allowedMethods("*")
                 .allowedHeaders("*")
                 .allowCredentials(true);
