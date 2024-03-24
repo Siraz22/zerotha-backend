@@ -16,46 +16,27 @@ logging:
 
 # Development
 ---
-#spring:
-#  config:
-#    activate:
-#      on-profile: "dev"
-#  datasource:
-#    url: jdbc:postgresql://localhost:5431/zerotha
-#    username: postgres
-#    password: root1234
-#    driver-class-name: org.postgresql.Driver
 
 spring:
   config:
     activate:
       on-profile: "dev"
   datasource:
-    url: jdbc:postgresql://dpg-cn8vcb2cn0vc738pg17g-a.oregon-postgres.render.com:5432/sample_245a?user=sample_245a_user&password=y8sn2wehTZ0tCLjMmdmzkwTxmbDAHIp8
+    url: jdbc:postgresql://localhost:5431/zerotha
+    username: postgres
+    password: root1234
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     database: POSTGRESQL
 
-# Production
+# Production Supabase
 ---
 spring:
   config:
     activate:
       on-profile: "prod"
   datasource:
-    url: jdbc:postgresql://dpg-cn8vcb2cn0vc738pg17g-a.oregon-postgres.render.com:5432/sample_245a?user=sample_245a_user&password=${PROD_PASSWORD}
-  jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    database: POSTGRESQL
-
-# Production Supa
----
-spring:
-  config:
-    activate:
-      on-profile: "prod_supa"
-  datasource:
-    url: ${PROD2_DB}
+    url: ${PROD}
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     database: POSTGRESQL
