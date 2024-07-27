@@ -1,8 +1,8 @@
 package com.zerodha.backend.converter;
 
 import com.zerodha.backend.enums.InvestmentType;
-import jakarta.persistence.AttributeConverter;
-import jakarta.persistence.Converter;
+import javax.persistence.AttributeConverter;
+import javax.persistence.Converter;
 
 @Converter(autoApply = true)
 public class InvestmentTypeConverter implements AttributeConverter<InvestmentType, String> {

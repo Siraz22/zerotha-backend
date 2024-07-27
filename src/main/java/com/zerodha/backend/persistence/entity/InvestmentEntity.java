@@ -2,7 +2,7 @@ package com.zerodha.backend.persistence.entity;
 
 import com.zerodha.backend.converter.InvestmentTypeConverter;
 import com.zerodha.backend.enums.InvestmentType;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

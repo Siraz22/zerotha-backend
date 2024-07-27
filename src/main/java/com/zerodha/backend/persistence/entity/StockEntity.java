@@ -3,7 +3,7 @@ package com.zerodha.backend.persistence.entity;
 import com.zerodha.backend.enums.InvestmentType;
 import com.zerodha.backend.enums.MarketCap;
 import com.zerodha.backend.enums.Sector;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

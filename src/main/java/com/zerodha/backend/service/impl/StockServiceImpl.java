@@ -1,5 +1,7 @@
 package com.zerodha.backend.service.impl;
 
+import com.fasterxml.jackson.databind.util.ArrayBuilders.BooleanBuilder;
+import com.zerodha.backend.controller.params.StockSearchParams;
 import com.zerodha.backend.dao.StockDAO;
 import com.zerodha.backend.dto.StockDTO;
 import com.zerodha.backend.dto.StockUpdateDTO;
@@ -67,8 +69,14 @@ public class StockServiceImpl implements StockService {
     }
 
     @Override
-    public List<StockDTO> findAll() {
+    public List<StockDTO> findAll(StockSearchParams stockSearchParams) {
+        BooleanBuilder where = buildFilter(stockSearchParams);
         List<StockEntity> stockEntities = stockDAO.findAll();
         return stockMapper.toDTOs(stockEntities);
+    }
+
+    private BooleanBuilder buildFilter(StockSearchParams stockSearchParams){
+        BooleanBuilder where = new BooleanBuilder();
+        return null;
     }
 }
