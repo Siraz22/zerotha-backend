@@ -39,7 +39,7 @@ public class StockController {
     }
 
     @GetMapping
-    public List<StockDTO> findAll(@RequestBody StockSearchParams stockSearchParams) {
-        return stockService.findAll(stockSearchParams);
+    public List<StockDTO> findAll(StockSearchParams params) {
+        return stockService.findAll(params);
     }
 }
