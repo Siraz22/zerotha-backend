@@ -1,5 +1,6 @@
 package com.zerodha.backend.controller;
 
+import com.zerodha.backend.controller.params.StockSearchParams;
 import com.zerodha.backend.dto.StockDTO;
 import com.zerodha.backend.dto.StockUpdateDTO;
 import com.zerodha.backend.persistence.constants.GlobalConstants;
@@ -38,7 +39,7 @@ public class StockController {
     }
 
     @GetMapping
-    public List<StockDTO> findAll() {
-        return stockService.findAll();
+    public List<StockDTO> findAll(StockSearchParams params) {
+        return stockService.findAll(params);
     }
 }

@@ -1,7 +1,7 @@
 package com.zerodha.backend.persistence.entity;
 
 import com.zerodha.backend.enums.PlatformTransactionType;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

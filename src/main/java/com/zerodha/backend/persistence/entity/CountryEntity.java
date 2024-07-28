@@ -2,7 +2,7 @@ package com.zerodha.backend.persistence.entity;
 
 import java.util.List;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
